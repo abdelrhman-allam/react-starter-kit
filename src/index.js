@@ -8,7 +8,7 @@ import configureStore from "./redux/configureStore";
 import { Provider as ReduxProvider } from "react-redux";
 
 render(
-  <ReduxProvider store={configureStore}>
+  <ReduxProvider store={configureStore()}>
     <Router>
       <App />
     </Router>
