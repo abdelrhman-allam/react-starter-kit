@@ -28,8 +28,10 @@ function CourseManagePage({
       loadCourses().catch((error) => {
         console.log("Courses loading error: " + error);
       });
+    } else {
+      setCourse({ ...props.course });
     }
-  }, []);
+  }, [props.course]);
 
   function handleChange(event) {
     const { name, value } = event.target;
