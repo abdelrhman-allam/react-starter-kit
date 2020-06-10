@@ -30,15 +30,13 @@ class CoursesPage extends React.Component {
   render() {
     return (
       <>
-        <h2>Courses</h2>
         {this.state.redirectToAddCoursePage && <Redirect to="/course" />}
+        <h2>Courses</h2>
         <h2>Manage Course</h2>
-        {this.props.loading ? "true" : "false"}
         {this.props.loading ? (
           <Spinner />
         ) : (
           <>
-            {" "}
             <button
               style={{ marginBottom: 20 }}
               className="btn btn-primary add-course"
@@ -75,7 +73,7 @@ function mapStateToProps(state) {
             };
           }),
     authors: state.authors,
-    loading: state.apiCallsInProgress > 0,
+    loading: state.apiStatusCallsInProgress > 0,
   };
 }
 
