@@ -7,7 +7,7 @@ function CourseForm({
   authors,
   onChange,
   onSave,
-  saveing = false,
+  saveing,
   errors = {},
 }) {
   return (
@@ -49,7 +49,9 @@ function CourseForm({
         error={errors.category}
       />
 
-      <input type="submit" value="Save" className="btn btn-primary" />
+      <button type="submit" disabled={saveing} className="btn btn-primary">
+        {saveing ? "Saveing..." : "Save"}
+      </button>
     </form>
   );
 }
