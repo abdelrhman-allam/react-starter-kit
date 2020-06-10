@@ -46,6 +46,7 @@ function CourseManagePage({
 
   function handleSave(event) {
     event.preventDefault();
+    if (!formIsValid()) return;
     setSaveing(true);
     saveCourse(course)
       .then(() => {
@@ -57,6 +58,15 @@ function CourseManagePage({
       });
   }
 
+  function formIsValid() {
+    const _errors = {};
+    if (!course.title) _errors.title = "Title is required";
+    if (!course.authorId) _errors.authorId = "Title is required";
+    if (!course.category) _errors.category = "Title is required";
+
+    setErrors(_errors);
+    return Object.keys(_errors).length === 0;
+  }
   return authors.length === 0 && courses.length === 0 ? (
     <Spinner />
   ) : (
