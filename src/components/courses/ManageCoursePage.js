@@ -47,9 +47,14 @@ function CourseManagePage({
   function handleSave(event) {
     event.preventDefault();
     setSaveing(true);
-    saveCourse(course).then(() => {
-      history.push("/courses");
-    });
+    saveCourse(course)
+      .then(() => {
+        history.push("/courses");
+      })
+      .catch((errors) => {
+        setSaveing(false);
+        setErrors({ onSave: errors.message });
+      });
   }
 
   return authors.length === 0 && courses.length === 0 ? (
