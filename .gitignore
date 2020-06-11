@@ -106,3 +106,4 @@ lib/
 es/
 build/
 *.snap
+*.code-workspace
