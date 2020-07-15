@@ -7,7 +7,7 @@ export default function configureStore(initialState) {
   const composeEnhancers =
     (typeof window !== "undefined" &&
       window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
-    compose;
+    compose; // # window == typeof undefined for headless browser testing
 
   return createStore(
     rootReducer,
